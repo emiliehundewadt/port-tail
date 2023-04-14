@@ -1,0 +1,368 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+h1 {
+  -webkit-text-stroke: 0.03em #fff;
+  font-family: "Bebas Neue", cursive;
+}
+/*VIDEO CSS/
+/* hero */
+
+.myHeader {
+  display: grid;
+}
+
+.grid_video {
+  grid-area: 1 / 1 / span 2 / span 1;
+}
+
+.banner {
+  grid-area: 1 / 1 / span 1 / span 1;
+}
+
+.overskrift {
+  grid-area: 2 / 1 / span 1 / span 1;
+}
+
+video {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16/9;
+}
+
+.video {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16/9;
+  display: grid;
+  width: 100%;
+  background-size: cover;
+  grid-column: 1 / span 2;
+  grid-row: 1/5;
+}
+
+video::-webkit-media-controls {
+  display: none;
+}
+
+/*VIDEO CSS*/
+
+.banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-flow: wrap;
+  margin: 2rem;
+  height: fit-content;
+}
+
+.nav_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-flow: wrap;
+}
+
+.main-menu {
+  display: flex;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 500;
+  font-family: "Big Shoulders Display", cursive;
+}
+
+.main-menu ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 3em;
+  letter-spacing: 0.1em;
+  transition: background-color 0.5s ease;
+}
+
+.banner a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+  letter-spacing: 1px;
+  font-size: 20px;
+}
+
+.main-menu a:hover {
+  border-bottom: 2px solid #edf0ec;
+}
+
+.logo img {
+  display: flex;
+}
+
+/* burgermenu */
+.toggle-btn {
+  background: transparent;
+  border: none;
+  min-width: 44px;
+  min-height: 44px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: none; /* Skjul knappen som standard */
+}
+
+/*MOBIL*/
+
+@media (max-width: 670px) {
+  .banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-flow: wrap;
+    margin: 2rem;
+  }
+
+  .multi {
+    font-size: 25.2px;
+    line-height: 0.5;
+  }
+
+  .logo img {
+    width: 15vh;
+    height: auto;
+  }
+
+  .toggle-btn {
+    display: block; /* Vis knappen, når viewporten maksimalt er 600px */
+  }
+
+  .main-menu {
+    display: contents; /* Fjern ".main-menu"-boksen fra ligningen, når viewporten maksimalt er 600px, men behold børnene, så disse deltager i flex-kontekten */
+  }
+
+  .main-menu ul {
+    display: none; /* Fjern menu-listen som standard */
+  }
+}
+
+/*Tablet*/
+
+@media (min-width: 670px) {
+  .banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-flow: wrap;
+    margin: 2rem;
+  }
+  .logo {
+    width: 20vh;
+    height: auto;
+  }
+
+  .navn {
+    font-size: 60px;
+  }
+
+  .multi {
+    font-size: 42px;
+  }
+
+  .toggle-btn {
+    display: block; /* Vis knappen, når viewporten maksimalt er 600px */
+    font-size: 24px;
+  }
+
+  .main-menu {
+    display: contents; /* Fjern ".main-menu"-boksen fra ligningen, når viewporten maksimalt er 600px, men behold børnene, så disse deltager i flex-kontekten */
+  }
+
+  .main-menu ul {
+    display: none; /* Fjern menu-listen som standard */
+  }
+
+  .main-menu.shown ul {
+    /* Vis menu-listen, når klassen ".shown" er til stede */
+    padding-top: 1rem;
+    display: flex;
+    flex: 1 1 100%;
+    flex-flow: column;
+    text-align: end;
+  }
+}
+
+@media (min-width: 1025px) {
+  .multi {
+    font-size: 67px;
+  }
+}
+
+.streg_højre {
+  transform: skew(6deg, 6deg);
+  box-sizing: border-box;
+  color: #ff1177;
+  border: solid #ff1177;
+  animation: streg 1s ease infinite;
+  -moz-animation: streg 1s ease infinite;
+  -webkit-animation: streg 1s ease infinite;
+}
+
+.streg_venstre {
+  transform: skew(-6deg, -6deg);
+  box-sizing: border-box;
+  color: #ff1177;
+  border: solid #ff1177;
+  animation: streg 1s ease infinite;
+  -moz-animation: streg 1s ease infinite;
+  -webkit-animation: streg 1s ease infinite;
+}
+
+@keyframes streg {
+  0%,
+  100% {
+    box-shadow: 0 0 1vw #ffffff, 0 0 2vw #ff1177, 0 0 5vw #ff1177, 0 0 10vw #ff1177;
+    color: #ff1177;
+  }
+}
+
+/* heading der blinker i neon */
+
+.neon-overskrift,
+h2 {
+  -webkit-text-stroke: 0.03em #fff;
+  font-family: "Bebas Neue", cursive;
+}
+
+.neon-overskrift,
+.neon-text {
+  position: relative;
+  /* -webkit-text-stroke: 0.005em rgba(255, 255, 255, 0.9); */
+  color: transparent;
+  animation: neon 4s infinite;
+}
+.neon-text::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0px;
+  -webkit-text-stroke: 0.03em #fff;
+  filter: blur(0.02em);
+  pointer-events: none;
+}
+
+.neon-text::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0px;
+  -webkit-text-stroke: 0.03em #fff;
+  filter: blur(0.01em);
+  pointer-events: none;
+}
+
+@keyframes neon {
+  0% {
+    opacity: 1;
+  }
+  8% {
+    opacity: 1;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  11% {
+    opacity: 1;
+  }
+  16% {
+    opacity: 1;
+  }
+  17% {
+    opacity: 0.8;
+  }
+  18% {
+    opacity: 1;
+  }
+  30% {
+    opacity: 1;
+  }
+  31% {
+    opacity: 0.92;
+  }
+  33% {
+    opacity: 1;
+  }
+  41% {
+    opacity: 1;
+  }
+  42% {
+    opacity: 0.7;
+  }
+  44% {
+    opacity: 1;
+  }
+  71% {
+    opacity: 1;
+  }
+  72% {
+    opacity: 0.7;
+  }
+  73% {
+    opacity: 1;
+  }
+  89% {
+    opacity: 1;
+  }
+  91% {
+    opacity: 0.92;
+  }
+  92% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes neonOn {
+  0% {
+    opacity: 0;
+  }
+  1% {
+    opacity: 1;
+  }
+  2% {
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+  }
+  6% {
+    opacity: 0;
+  }
+  7% {
+    opacity: 1;
+  }
+  9% {
+    opacity: 1;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  12% {
+    opacity: 1;
+  }
+  71% {
+    opacity: 1;
+  }
+  72% {
+    opacity: 0.96;
+  }
+  73% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.heading--mg {
+  line-height: 0.78947368em;
+  text-transform: uppercase;
+}
